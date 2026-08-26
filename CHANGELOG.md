@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.1
+
+### Added
+
+- Event stream flap damping: the reconnect backoff only resets after a stream has stayed open
+  for 10 s (`flapWindow`), so a server that accepts and immediately drops the connection backs
+  off instead of looping.
+
+### Changed
+
+- The Authorization-Code callback server binds to the host of the redirect uri (loopback by
+  default) instead of every interface.
+
 ## 0.1.0
 
 First milestone (ROADMAP §6.1): the Home Connect api side without MQTT.

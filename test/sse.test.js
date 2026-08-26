@@ -134,6 +134,50 @@ describe('EventStream', () => {
         stream.stop();
     });
 
+    test('flap damping: a stream that dies right after opening keeps the grown backoff', async () => {
+        const timers = [];
+        const setTimer = (fn, ms) => {
+            const t = {fn, ms, unref() {}};
+            timers.push(t);
+            return t;
+        };
+        let opens = 0;
+        const stream = new EventStream({
+            open: async () => {
+                opens++;
+                if (opens <= 2) {
+                    throw new ApiError({status: 0, description: 'ECONNRESET', method: 'GET', path: '/x'});
+                }
+                // accepted, then immediately closed by the server
+                return {body: bodyFrom([])};
+            },
+            log: silent,
+            setTimeout: setTimer,
+            random: () => 0,
+            minBackoff: 1000,
+            flapWindow: 10000,
+        });
+        stream.on('lost', () => {});
+        stream.start();
+        const settle = async () => {
+            for (let i = 0; i < 4; i++) {
+                await new Promise((r) => setImmediate(r));
+            }
+        };
+        await settle();
+        timers.find((t) => t.ms === 1000).fn(); // reconnect #1 → fails → backoff 2 s
+        await settle();
+        timers.find((t) => t.ms === 2000).fn(); // reconnect #2 → opens, closes at once
+        await settle();
+        assert.equal(opens, 3);
+        // the backoff was 4 s when the short-lived stream opened and must still be 4 s
+        assert.ok(
+            timers.some((t) => t.ms === 4000),
+            'backoff not reset by the flapping stream',
+        );
+        stream.stop();
+    });
+
     test('429 waits retry-after, 401 calls onUnauthorized', async () => {
         const timers = [];
         const setTimer = (fn, ms) => {

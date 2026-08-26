@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
-import {Auth, AuthError} from '../lib/auth.js';
+import {Auth, AuthError, callbackHostFor} from '../lib/auth.js';
 import {Budget} from '../lib/budget.js';
 
 const silent = {debug() {}, info() {}, warn() {}, error() {}};
@@ -264,5 +264,16 @@ describe('Auth.post error shapes', () => {
             },
         );
         await assert.rejects(() => mk({}, 500).post('/x', {}), {code: '500', status: 500});
+    });
+});
+
+describe('callbackHostFor', () => {
+    test('loopback and ip literals bind narrowly, hostnames bind everywhere', () => {
+        assert.equal(callbackHostFor('http://127.0.0.1:8580/callback'), '127.0.0.1');
+        assert.equal(callbackHostFor('http://localhost:8580/callback'), '127.0.0.1');
+        assert.equal(callbackHostFor('http://192.168.1.10:8580/callback'), '192.168.1.10');
+        assert.equal(callbackHostFor('http://[::1]:8580/callback'), '::1');
+        assert.equal(callbackHostFor('https://node-red.lan/homeconnect/auth/callback'), undefined);
+        assert.equal(callbackHostFor('not a url'), undefined);
     });
 });
