@@ -1,0 +1,8 @@
+[
+  {
+    "key": "BSH.Common.Setting.PowerState",
+    "value": "BSH.Common.EnumType.PowerState.Off",
+    "name": "Power status",
+    "displayvalue": "Off"
+  }
+]

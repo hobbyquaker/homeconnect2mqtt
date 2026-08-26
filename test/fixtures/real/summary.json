@@ -1,0 +1,28 @@
+{
+  "started": "2026-08-26T18:14:32.623Z",
+  "ended": "2026-08-26T18:44:34.330Z",
+  "appliances": 3,
+  "events": 11,
+  "budget": {
+    "day": {
+      "used": 36,
+      "limit": 1000,
+      "reserve": 100,
+      "reset": "2026-08-27T18:10:58.284Z"
+    },
+    "minute": {
+      "used": 0,
+      "limit": 50
+    },
+    "starts": 0,
+    "stops": 0,
+    "refresh": {
+      "minute": 0,
+      "day": 0,
+      "dayLimit": 100
+    },
+    "errors": 0,
+    "blocked": [],
+    "ts": 1787769874330
+  }
+}

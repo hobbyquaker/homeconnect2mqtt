@@ -1,0 +1,35 @@
+[
+  {
+    "key": "BSH.Common.Option.StartInRelative",
+    "value": 0,
+    "unit": "seconds",
+    "name": "Start time"
+  },
+  {
+    "key": "Dishcare.Dishwasher.Option.IntensivZone",
+    "value": false,
+    "name": "Intensive Zone"
+  },
+  {
+    "key": "Dishcare.Dishwasher.Option.VarioSpeedPlus",
+    "value": false,
+    "name": "varioSpeed Plus"
+  },
+  {
+    "key": "Dishcare.Dishwasher.Option.BrillianceDry",
+    "value": false,
+    "name": "Shine and Dry"
+  },
+  {
+    "key": "BSH.Common.Option.EnergyForecast",
+    "value": 48,
+    "unit": "%",
+    "name": "Energy"
+  },
+  {
+    "key": "BSH.Common.Option.WaterForecast",
+    "value": 48,
+    "unit": "%",
+    "name": "Water"
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "error": {
+    "status": 404,
+    "key": "SDK.Error.NoProgramSelected",
+    "description": "There is no program selected"
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "key": "BSH.Common.Command.AcknowledgeEvent",
+    "name": "OK"
+  },
+  {
+    "key": "BSH.Common.Command.PauseProgram",
+    "name": "Stop the programme"
+  }
+]

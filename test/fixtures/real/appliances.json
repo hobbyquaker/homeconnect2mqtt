@@ -1,0 +1,29 @@
+[
+  {
+    "brand": "Siemens",
+    "connected": true,
+    "enumber": "SN658X06TE/53",
+    "haId": "DISHWASHER-1",
+    "name": "Dishwasher 1",
+    "type": "Dishwasher",
+    "vib": "SN658X06TE"
+  },
+  {
+    "brand": "Bosch",
+    "connected": false,
+    "enumber": "WAU28P40/01",
+    "haId": "WASHER-2",
+    "name": "Washer 2",
+    "type": "Washer",
+    "vib": "WAU28P40"
+  },
+  {
+    "brand": "Siemens",
+    "connected": true,
+    "enumber": "HM776GKB1/J7",
+    "haId": "OVEN-3",
+    "name": "Oven 3",
+    "type": "Oven",
+    "vib": "HM776GKB1"
+  }
+]

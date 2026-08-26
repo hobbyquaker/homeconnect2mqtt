@@ -1,0 +1,19 @@
+[
+  {
+    "key": "BSH.Common.Setting.PowerState",
+    "value": "BSH.Common.EnumType.PowerState.Standby",
+    "name": "Power status",
+    "displayvalue": "Standby"
+  },
+  {
+    "key": "BSH.Common.Setting.ChildLock",
+    "value": false,
+    "name": "Childproof lock"
+  },
+  {
+    "key": "BSH.Common.Setting.AlarmClock",
+    "value": 0,
+    "unit": "seconds",
+    "name": "Alarm"
+  }
+]

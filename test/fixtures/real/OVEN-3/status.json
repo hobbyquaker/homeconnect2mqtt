@@ -1,0 +1,39 @@
+[
+  {
+    "key": "BSH.Common.Status.RemoteControlActive",
+    "value": true,
+    "name": "Remote Control"
+  },
+  {
+    "key": "BSH.Common.Status.RemoteControlStartAllowed",
+    "value": true,
+    "name": "Remote Start"
+  },
+  {
+    "key": "BSH.Common.Status.LocalControlActive",
+    "value": false,
+    "name": "Local operation active"
+  },
+  {
+    "key": "BSH.Common.Status.InteriorIlluminationActive",
+    "value": false,
+    "name": "Interior lighting"
+  },
+  {
+    "key": "BSH.Common.Status.OperationState",
+    "value": "BSH.Common.EnumType.OperationState.Inactive",
+    "name": "Operation state",
+    "displayvalue": "Inactive"
+  },
+  {
+    "key": "Cooking.Oven.Status.CurrentCavityTemperature",
+    "value": 59,
+    "unit": "°C"
+  },
+  {
+    "key": "BSH.Common.Status.DoorState",
+    "value": "BSH.Common.EnumType.DoorState.Closed",
+    "name": "Door",
+    "displayvalue": "Closed"
+  }
+]

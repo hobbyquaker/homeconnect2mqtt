@@ -1,0 +1,74 @@
+{
+  "name": "homeconnect2mqtt",
+  "version": "0.1.0",
+  "description": "Interface between BSH Home Connect appliances (Bosch, Siemens, Neff, Gaggenau, ...) and MQTT, with Home Assistant discovery",
+  "type": "module",
+  "main": "index.js",
+  "preferGlobal": true,
+  "bin": {
+    "homeconnect2mqtt": "index.js"
+  },
+  "files": [
+    "index.js",
+    "config.js",
+    "lib/",
+    "example-map.json",
+    "map.schema.json"
+  ],
+  "engines": {
+    "node": "^20.19 || ^22.12 || >=24"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write . && eslint --fix .",
+    "test": "node --test",
+    "test:watch": "node --test --watch",
+    "deploy": "bash deploy.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hobbyquaker/homeconnect2mqtt.git"
+  },
+  "keywords": [
+    "mqtt",
+    "smarthome",
+    "mqtt-smarthome",
+    "mqtt-interfaces",
+    "home-automation",
+    "home-assistant",
+    "homeconnect",
+    "home-connect",
+    "bsh",
+    "bosch",
+    "siemens",
+    "neff",
+    "gaggenau",
+    "dishwasher",
+    "washer",
+    "dryer",
+    "oven"
+  ],
+  "author": "Sebastian Raff <hobbyquaker@gmail.com> (https://hobbyquaker.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hobbyquaker/homeconnect2mqtt/issues"
+  },
+  "homepage": "https://github.com/hobbyquaker/homeconnect2mqtt",
+  "mqttInterfaces": {
+    "spec": "2.0",
+    "envPrefix": "HOMECONNECT2MQTT",
+    "needs": [],
+    "serviceExtra": []
+  },
+  "dependencies": {
+    "mqtt-interfaces-core": "^0.6.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.0.0"
+  }
+}

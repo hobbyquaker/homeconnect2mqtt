@@ -1,0 +1,114 @@
+[
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.Microwave.90Watt",
+    "name": "90 watt"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.Microwave.180Watt",
+    "name": "180 watt"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.Microwave.360Watt",
+    "name": "360 watt"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.Microwave.600Watt",
+    "name": "600 watt"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.Microwave.Max",
+    "name": "Boost"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.HeatingMode.HotAir",
+    "name": "4D Hot air"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.HeatingMode.TopBottomHeating",
+    "name": "Top and bottom heat"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.HeatingMode.TopBottomHeatingEco",
+    "name": "Top and bottom heat gentle"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.HeatingMode.HotAirGrilling",
+    "name": "Hot air grilling"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.HeatingMode.PizzaSetting",
+    "name": "Pizza setting"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.HeatingMode.FrozenHeatupSpecial",
+    "name": "CoolStart function"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.HeatingMode.SlowCook",
+    "name": "Slow cook"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.HeatingMode.BottomHeating",
+    "name": "Bottom heating"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.HeatingMode.KeepWarm",
+    "name": "Keep warm"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.HeatingMode.PreheatOvenware",
+    "name": "Preheat ovenware"
+  },
+  {
+    "constraints": {
+      "execution": "selectandstart"
+    },
+    "key": "Cooking.Oven.Program.HeatingMode.PreHeating",
+    "name": "Preheat"
+  }
+]

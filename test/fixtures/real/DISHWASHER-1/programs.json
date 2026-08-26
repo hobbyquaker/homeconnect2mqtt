@@ -1,0 +1,74 @@
+[
+  {
+    "constraints": {
+      "available": true,
+      "execution": "selectandstart"
+    },
+    "key": "Dishcare.Dishwasher.Program.Intensiv70",
+    "name": "Intensive"
+  },
+  {
+    "constraints": {
+      "available": true,
+      "execution": "selectandstart"
+    },
+    "key": "Dishcare.Dishwasher.Program.Auto2",
+    "name": "Auto 45-65°C"
+  },
+  {
+    "constraints": {
+      "available": true,
+      "execution": "selectandstart"
+    },
+    "key": "Dishcare.Dishwasher.Program.Eco50",
+    "name": "Eco 50°C"
+  },
+  {
+    "constraints": {
+      "available": true,
+      "execution": "selectandstart"
+    },
+    "key": "Dishcare.Dishwasher.Program.NightWash",
+    "name": "Silence"
+  },
+  {
+    "constraints": {
+      "available": true,
+      "execution": "selectandstart"
+    },
+    "key": "Dishcare.Dishwasher.Program.Kurz60",
+    "name": "Short 60°C"
+  },
+  {
+    "constraints": {
+      "available": true,
+      "execution": "selectandstart"
+    },
+    "key": "Dishcare.Dishwasher.Program.Glas40",
+    "name": "Glass 40°C"
+  },
+  {
+    "constraints": {
+      "available": true,
+      "execution": "selectandstart"
+    },
+    "key": "Dishcare.Dishwasher.Program.Quick45",
+    "name": "Quick wash 45°C"
+  },
+  {
+    "constraints": {
+      "available": true,
+      "execution": "selectandstart"
+    },
+    "key": "Dishcare.Dishwasher.Program.PreRinse",
+    "name": "Pre-rinse"
+  },
+  {
+    "constraints": {
+      "available": true,
+      "execution": "selectandstart"
+    },
+    "key": "Dishcare.Dishwasher.Program.MachineCare",
+    "name": "Machine Care"
+  }
+]
