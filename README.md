@@ -47,6 +47,23 @@ writes `appliances.json`, one directory per appliance with status, settings, pro
 and constraints, and `events.jsonl` with 30 minutes of the event stream; appliance ids and names
 are redacted (`--no-dump-redact` keeps them). The dump costs about 10 requests per appliance.
 
+## Docker
+
+Multi-arch image (amd64, arm64, armv7). Authorize once into the volume, then run:
+
+```
+docker run --rm -it -v homeconnect2mqtt:/data \
+  -e HOMECONNECT2MQTT_CLIENT_ID=<client-id> \
+  ghcr.io/hobbyquaker/homeconnect2mqtt --login
+
+docker run -d --name homeconnect2mqtt --restart unless-stopped -v homeconnect2mqtt:/data \
+  -e HOMECONNECT2MQTT_CLIENT_ID=<client-id> -e HOMECONNECT2MQTT_MQTT_URL=mqtt://broker \
+  ghcr.io/hobbyquaker/homeconnect2mqtt
+```
+
+`/data` is the state directory: `tokens.json` and the api budget counters live there. Without the
+volume every restart needs a new `--login` and the daily request budget starts over.
+
 ## Options
 
 Run `homeconnect2mqtt --help` for the full list; every option is also an environment variable

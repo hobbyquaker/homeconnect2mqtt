@@ -1,0 +1,15 @@
+node_modules
+.git
+.github
+*.md
+.editorconfig
+.prettierrc
+.prettierignore
+eslint.config.js
+test
+prior-art
+deploy.sh
+tokens.json
+budget.json
+fixtures-local
+dump
