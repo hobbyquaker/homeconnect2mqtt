@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2
+
+- `mqttInterfaces.needs` uses the vocabulary the core documents now: `network` + `cloud` (was []) — shown as badges in she's catalog.
+- Package description without the Home Assistant discovery clause (discovery is a given for adapters on the core).
+
 ## 0.1.1
 
 ### Added
