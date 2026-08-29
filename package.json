@@ -1,6 +1,6 @@
 {
   "name": "homeconnect2mqtt",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Interface between BSH Home Connect appliances (Bosch, Siemens, Neff, Gaggenau, ...) and MQTT",
   "type": "module",
   "main": "index.js",
@@ -65,7 +65,7 @@
     "serviceExtra": []
   },
   "dependencies": {
-    "mqtt-interfaces-core": "^0.6.1"
+    "mqtt-interfaces-core": "^0.8.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",

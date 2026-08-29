@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.4
+
+- mqtt-interfaces-core 0.8: the instance publishes `<name>/maintenance/stats` (memory, CPU share, event loop lag) every 60 s — `--stats-interval`, 0 = off; she shows it on the Instances tab.
+
+## 0.1.3
+
+- mqtt-interfaces-core 0.8: the instance publishes `<name>/maintenance/stats` (memory, CPU share, event loop lag) every 60 s — `--stats-interval`, 0 = off; she shows it on the Instances tab.
+
 ## 0.1.2
 
 - `mqttInterfaces.needs` uses the vocabulary the core documents now: `network` + `cloud` (was []) — shown as badges in she's catalog.
