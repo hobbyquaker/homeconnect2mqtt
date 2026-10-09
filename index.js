@@ -7,13 +7,16 @@
  * (see ROADMAP.md §6).
  */
 
+import fs from 'node:fs';
 import path from 'node:path';
+import readline from 'node:readline/promises';
 import {createLogger} from 'mqtt-interfaces-core';
 import config from './config.js';
 import {Auth} from './lib/auth.js';
 import {Budget} from './lib/budget.js';
 import {HomeConnectClient} from './lib/client.js';
 import {runDump} from './lib/dump.js';
+import {LocalAppliances, localLogin, parseHosts, readLocalFile, runLocalDump} from './lib/local.js';
 
 const log = createLogger({envPrefix: config.$envPrefix, level: config.verbosity});
 
@@ -83,7 +86,50 @@ async function login() {
     }
 }
 
+async function askOnce(question) {
+    const rl = readline.createInterface({input: process.stdin, output: process.stdout});
+    try {
+        return await rl.question(question);
+    } finally {
+        rl.close();
+    }
+}
+
+async function mainLocal() {
+    if (config.login) {
+        await localLogin({file: config.localFile, log, onPrompt: printPrompt, ask: askOnce});
+        return;
+    }
+    if (!fs.existsSync(config.localFile)) {
+        log.error(`no appliances in ${config.localFile} — run: homeconnect2mqtt --transport local --login`);
+        process.exit(2);
+    }
+    const {configs} = readLocalFile(config.localFile);
+    const local = new LocalAppliances({configs, hosts: parseHosts(config.localHosts), log});
+    if (config.dump !== undefined) {
+        await runLocalDump({
+            local,
+            log,
+            dir: config.dump || 'dump',
+            minutes: config.dumpMinutes,
+            redact: config.dumpRedact,
+            signal: abort.signal,
+        });
+        return;
+    }
+    log.error('0.1 implements --login and --dump only; the mqtt bridge comes with 0.2');
+    process.exit(2);
+}
+
 async function main() {
+    if (config.transport === 'local') {
+        await mainLocal();
+        return;
+    }
+    if (!config.clientId) {
+        log.error('--client-id is required with the cloud transport (--transport local needs none)');
+        process.exit(2);
+    }
     if (config.login) {
         await login();
         return;

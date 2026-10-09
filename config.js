@@ -7,11 +7,18 @@ const stateDir = process.env.STATE_DIRECTORY || '.';
 export const DEFAULT_SCOPES = 'IdentifyAppliance Monitor Control Settings';
 
 export const OPTIONS = {
+    transport: {
+        type: 'string',
+        describe:
+            'cloud: the Home Connect developer api; local: the appliances on the lan through homeconnect-local, ' +
+            'no developer application and no quota (experimental)',
+        choices: ['cloud', 'local'],
+        default: 'cloud',
+    },
     'client-id': {
         alias: 'c',
         type: 'string',
-        describe: 'client id of your application at developer.home-connect.com',
-        demandOption: true,
+        describe: 'client id of your application at developer.home-connect.com (--transport cloud)',
         secret: true,
     },
     'client-secret': {
@@ -90,6 +97,18 @@ export const OPTIONS = {
         describe: 'redact appliance ids and names in --dump output',
         default: true,
     },
+    'local-file': {
+        type: 'string',
+        describe: 'the appliances, their keys and profiles from a local --login (default: <state-dir>/local.json)',
+        file: {
+            format: 'json',
+            describe: 'appliances with local keys and profiles, written by --transport local --login',
+        },
+    },
+    'local-hosts': {
+        type: 'string',
+        describe: 'where each appliance is on the lan, as <haId>=<ip>,... (--transport local; no discovery yet)',
+    },
 };
 
 const config = parseConfig({
@@ -98,6 +117,10 @@ const config = parseConfig({
     defaults: {name: 'homeconnect'},
     examples: [
         ['$0 --login -c <client-id>', 'authorize once (device flow), tokens go to <state-dir>/tokens.json'],
+        [
+            '$0 --transport local --login',
+            'log in once for the local transport, keys and profiles go to <state-dir>/local.json',
+        ],
         ['$0 -c <client-id> -u mqtt://broker', 'run in the foreground'],
         ['$0 -c <client-id> --dump fixtures --dump-minutes 30', 'record api responses and events'],
         [
@@ -109,6 +132,9 @@ const config = parseConfig({
 
 if (config.tokenFile === undefined) {
     config.tokenFile = path.join(config.stateDir, 'tokens.json');
+}
+if (config.localFile === undefined) {
+    config.localFile = path.join(config.stateDir, 'local.json');
 }
 
 export default config;
