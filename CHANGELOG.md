@@ -1,5 +1,18 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- `--transport local` (experimental): the appliances on the lan through
+  [homeconnect-local](https://github.com/handijk/homeconnect-local), without a developer
+  application, a quota or the cloud after a one-time login. `--transport local --login` logs in
+  with the Home Connect account (the app's own flow) and writes the appliances' local keys and
+  profiles to `<state-dir>/local.json`; `--transport local --dump <dir> --local-hosts <haId>=<ip>`
+  follows the appliances' values the way `--dump` follows the event stream, with the same event
+  lines. The mqtt bridge of 0.2 gets both transports behind one interface (ROADMAP OQ-H5).
+  `--client-id` is only required with the cloud transport now.
+
 ## 0.1.5
 
 ### Added

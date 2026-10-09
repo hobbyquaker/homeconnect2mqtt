@@ -65,6 +65,7 @@
     "serviceExtra": []
   },
   "dependencies": {
+    "homeconnect-local": "^0.2.1",
     "mqtt-interfaces-core": "^0.8.0"
   },
   "devDependencies": {

@@ -49,6 +49,31 @@ writes `appliances.json`, one directory per appliance with status, settings, pro
 and constraints, and `events.jsonl` with 30 minutes of the event stream; appliance ids and names
 are redacted (`--no-dump-redact` keeps them). The dump costs about 10 requests per appliance.
 
+## Local transport (experimental)
+
+Appliances also speak a local protocol on the lan (what the Home Connect app uses next to the
+cloud): no developer application, no request quota, real-time values, nothing leaves the house
+once the appliance is known. `--transport local` uses it through
+[homeconnect-local](https://github.com/handijk/homeconnect-local).
+
+```
+homeconnect2mqtt --transport local --login
+```
+
+prints the Home Connect login URL (the app's own OAuth flow, no developer application); the
+browser ends at an `hcauth://auth/prod?code=…` address that does not load — paste it back. The
+appliances' local keys and profiles land in `<state-dir>/local.json`.
+
+```
+homeconnect2mqtt --transport local --dump fixtures --dump-minutes 30 --local-hosts <haId>=<ip>
+```
+
+connects to each appliance at the address given (there is no discovery yet) and writes
+`appliances.json`, one `profile.json` per appliance (its statuses, settings, programs and
+options as the profile declares them) and `events.jsonl` in the shape of the cloud dump. Older
+appliances use TLS-PSK on port 443, newer ones AES on port 80; the key type from the login
+decides.
+
 ## Docker
 
 Multi-arch image (amd64, arm64, armv7). Authorize once into the volume, then run:
